@@ -1,13 +1,19 @@
-//Question-1
-/* * Your goal in this kata is to implement a difference function, which subtracts one list from another and returns the result.
-It should remove all values from list a, which are present in list b keeping their order.arrayDiff([1,2],[1]) == [2]
-If a value is present in b, all of its occurrences must be removed from the other: arrayDiff([1,2,2,2,3],[2]) == [1,3]
-*/
-//Solution: 
-export function arrayDiff(a, b) {
-    return a.filter(function (x) {
-        return !b.includes(x)
-    })
-    return a.filter((x) => !b.includes(x))
+/* Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. 
+Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.
+If the parameter is itself not a perfect square then -1 should be returned. You may assume the parameter is non-negative.
+
+Examples:(Input --> Output)
+121 --> 144
+625 --> 676
+114 --> -1 since 114 is not a perfect square */
+//Solution
+export function findNextSquare(sqr) {
+    var sqrt = Math.sqrt(sqr)
+    if (sqrt !== Math.floor(sqrt)) {
+        return -1;
+    }
+
+    var nextSqr = Math.floor(sqrt) + 1;
+    return nextSqr * nextSqr
 }
-console.log(arrayDiff([1, 2, 2, 2, 3], [2]))
+console.log(findNextSquare(16))
